@@ -2,8 +2,6 @@
 
 ## Nonlinear Regression Models Catalogue
 
-## Codigo ui do app shiny desenvolvido pelos petianos Augusto Calcanhoto e Willian Ramos
-## Sob a tutoria do Professor Walmes Zevianni.
 
 ## Carregando pacotes
 
@@ -13,18 +11,6 @@ library(ggplot2)
 library(markdown)
 
 ## Começo do codigo:
-
-# Trocando cor das barra
-
-mycss <- "
-.irs-bar,
-.irs-bar-edge,
-.irs-single,
-.irs-grid-pol {
-background: green;
-border-color: green;
-}"
-
 
 shinyUI(dashboardPage(
   
@@ -39,8 +25,8 @@ shinyUI(dashboardPage(
 # Header
   
   
-        dashboardHeader(title = "Nonlinear Regression Models Catalogue",
-                        titleWidth = 450,
+        dashboardHeader(title = "nlmSet",
+                        titleWidth = 229.41,
                         tags$li(class= "dropdown",
                                 tags$a(href= "https://github.com/leg-ufpr/nlmSet", 
                                 icon("github"), 
@@ -54,7 +40,7 @@ shinyUI(dashboardPage(
     
 # Trocando cor da barra.
     
-        tags$style(mycss),
+        tags$style(includeCSS("style.css")),
     
 # Abas 
     
@@ -69,7 +55,6 @@ shinyUI(dashboardPage(
       
           menuItem("Models",
                    tabName = "mod",
-        
                    sidebarSearchForm(textId = "searchText",
                                      buttonId = "searchButton",
                                      label = "Search..."),            
@@ -79,19 +64,26 @@ shinyUI(dashboardPage(
         
             menuSubItem("Asymptotic Exponential",
                         tabName = "expA"
-        ),
+            ),
         
 #-----------------------------------------------------------------------------------
         
 # Michelis-Menten          
         
-        menuSubItem("Michaelis-Menten",
-                    tabName = "MM"
-        )
+            menuSubItem("Michaelis-Menten",
+                        tabName = "MM"
+            )
 
 #-----------------------------------------------------------------------------------  
 
-      ) #menuItem
+          ),#menuItem
+
+          menuItem("Contribution",
+                   tabName = "cont"
+          )
+
+
+
     ) #sidebarMenu
   ), #dashboardSidebar
   
@@ -108,7 +100,8 @@ shinyUI(dashboardPage(
             tabItem(tabName = "int",
                     includeMarkdown("README.md")
             ),
-      
+
+
       
 # Modelos      
       
@@ -122,13 +115,13 @@ shinyUI(dashboardPage(
           
             fluidRow(
             
-              source("R/asymexp.R")
+              source("Models/AsymExp/Pasymexp.R")
             
             ) # fluidRow
           )#fluidPage
         ),#tabItem
       
-#***********************************************************************************
+#-----------------------------------------------------------------------------------
 
 # Michaelis-Menten
       
@@ -138,14 +131,20 @@ shinyUI(dashboardPage(
           
             fluidRow(
             
-              source("R/michmen.R")
+              source("Models/MicMen/Pmicmen.R")
             
             ) # fluidRow
           )#fluidPage
-        )#tabItem
+        ),#tabItem
 
-#***********************************************************************************
-    
+#-----------------------------------------------------------------------------------
+        tabItem(tabName = "cont",
+                includeMarkdown("README.md")
+        )
+
+
+#-----------------------------------------------------------------------------------
+
    )#tabItems  
   )#dashboardBody
  )#dashboardPage

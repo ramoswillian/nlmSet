@@ -37,13 +37,13 @@
 # Documentation          
        
        tabPanel("Documentation",
-                withMathJax(includeMarkdown("Documentation/Asymptotic_Exponential.md")
+                withMathJax(includeMarkdown("Models/AsymExp/DAsymptotic_Exponential.md")
                 )),
        
 # R code          
        
        tabPanel("R Code",
-                withMathJax(includeMarkdown("Code/RAsymptoticE.md")
+                withMathJax(includeMarkdown("Models/AsymExp/CAsymptotic.md")
                 ))
        
        

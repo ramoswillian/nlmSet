@@ -36,13 +36,13 @@
 # Documentation          
        
           tabPanel("Documentation",
-                   withMathJax(includeMarkdown("Documentation/Michaelis_Menten.md")
+                   withMathJax(includeMarkdown("Models/MicMen/DMichaelis_Menten.md")
                    )),
        
 # R code          
        
           tabPanel("R Code",
-                   withMathJax(includeMarkdown("Code/RMichaelisM.md"))
+                   withMathJax(includeMarkdown("Models/MicMen/CMichaelis.md"))
        )
        
 )
