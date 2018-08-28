@@ -30,239 +30,123 @@ shinyUI(dashboardPage(
   
 # Title  
   
-  title = "nlmSet",
+        title = "nlmSet",
   
 # Skin
   
-  skin = "green",
-
-# Header
-
+        skin = "green",
   
-  dashboardHeader(
-    title = "Nonlinear Regression Models Catalogue",
-    titleWidth = 450,
-    tags$li(class= "dropdown", tags$a(href= "https://github.com/leg-ufpr/nlmSet", 
-                                    icon("github"), "Source Code", target="_blank"))
+# Header
+  
+  
+        dashboardHeader(title = "Nonlinear Regression Models Catalogue",
+                        titleWidth = 450,
+                        tags$li(class= "dropdown",
+                                tags$a(href= "https://github.com/leg-ufpr/nlmSet", 
+                                icon("github"), 
+                                "Source Code",
+                                target="_blank"))
   ),
   
 # Sidebar
   
-  dashboardSidebar(
+        dashboardSidebar(
     
 # Trocando cor da barra.
     
-    tags$style(mycss),
-
-# Abas 
-
-    sidebarMenu(
-        id = "tabs",
-
-# Primeira Aba       
-       
-        menuItem(
-            "Introduction",
-            tabName = "int"),
-       
-        menuItem(
-            "Models",
-            tabName = "mod",
-         
-# Modelos         
-
-#-----------------------------------------------------------------------------------
-         
-# Exponencial Assintótico
-
-        menuSubItem(
-            "Asymptotic Exponential",
-            tabName = "expA"
-         ),
-
-#-----------------------------------------------------------------------------------
-         
-# Michelis-Menten          
-
-         menuSubItem(
-           "Michaelis-Menten",
-           tabName = "MM"
-         )         
- 
-       )
-     )
+        tags$style(mycss),
     
+# Abas 
+    
+        sidebarMenu(
+          
+          id = "tabs",
+      
+# Primeira Aba       
+      
+          menuItem("Introduction",
+                    tabName = "int"),
+      
+          menuItem("Models",
+                   tabName = "mod",
+        
+                   sidebarSearchForm(textId = "searchText",
+                                     buttonId = "searchButton",
+                                     label = "Search..."),            
+#-----------------------------------------------------------------------------------
+        
+# Exponencial Assintótico
+        
+            menuSubItem("Asymptotic Exponential",
+                        tabName = "expA"
+        ),
+        
+#-----------------------------------------------------------------------------------
+        
+# Michelis-Menten          
+        
+        menuSubItem("Michaelis-Menten",
+                    tabName = "MM"
+        )
+
+#-----------------------------------------------------------------------------------  
+
+      ) #menuItem
+    ) #sidebarMenu
   ), #dashboardSidebar
   
 #-----------------------------------------------------------------------------------  
-
-  # Body
   
-  dashboardBody(
+# Body
+  
+        dashboardBody(
     
-    tabItems(
-    
-    # Utilizar a funcao box dentro de dashboardBody(fluidRow()) para criar caixas
-    
+          tabItems(
       
-      # Box: A funcao box cria caixas no layout da pagina. 
-      # Status argumentos: primary, success, info, warning, danger. 
+# Tela inicial      
       
-# Parte inicial      
-      
-      tabItem(
-        tabName = "int",
-        includeMarkdown("README.md")
-      ),
-      
-      
-# Onde os modelos deverão ficar      
-
-#***********************************************************************************
-# Exponencial Assintótica
-
-      tabItem(
-        
-        tabName = "expA",
-        
-        fluidPage(
-        
-          fluidRow(
-            
-       tabBox(title = "Asymptotic Exponential",
-            #solidHeader = TRUE,
-            #height = 470,
-            #width = 15,
-            #status = "success",
-            #collapsible = TRUE,
-            id = "m1",
-            width = 250,
-            
-# Plot          
-            
-            tabPanel("Plot",
-                     
-          sidebarLayout(    
-          
-            sidebarPanel(
-            
-            sliderInput(inputId = "tA",
-                        min = -10,
-                        max = 10,
-                        value = 1,
-                        step = 0.5,
-                        label = "Theta A"
+            tabItem(tabName = "int",
+                    includeMarkdown("README.md")
             ),
-            sliderInput(inputId = "t0",
-                        min = 0,
-                        max = 1,
-                        value = 0.5,
-                        step = 0.05,
-                        label = "Theta 0"
-            ))
-            
-           ,
-          
-            mainPanel(
-            plotOutput(outputId = "EA",
-                        height = 400
-            )
-          )
-          )
-            ), # tabP
-          
-# Documentation          
-          
-          tabPanel("Documentation",
-                   withMathJax(includeMarkdown("Documentation/Asymptotic_Exponential.md")
-          )),
-          
-# R code          
-          
-          tabPanel("R Code",
-                   withMathJax(includeMarkdown("R_code/RAsymptoticE.md")
-          ))
-        
-        
-            )
-           ) # fluidRow
-            
-
-       )#fluidPage
-      ),#tabItem
-
-#***********************************************************************************
-# Michaelis-Menten
-
-      tabItem(
-    
-        tabName = "MM",
-
-        fluidPage(
       
-          fluidRow(
-            
-            tabBox(title = "Michaelis-Menten",
-                   #solidHeader = TRUE,
-                   #height = 470,
-                   #width = 15,
-                   #status = "success",
-                   #collapsible = TRUE,
-                   id = "m2",
-                   width = 250,
-
-# Plot
-
-            tabPanel("Plot",
-                            
-                   sidebarLayout(    
-                              
-                   sidebarPanel(
-                                
-                   sliderInput(inputId = "tA",
-                               min = -10,
-                               max = 10,
-                               value = 1,
-                               step = 0.5,
-                               label = "Theta A"
-                              ),
-                   
-                  sliderInput(inputId = "tV",
-                              min = 0,
-                              max = 1,
-                              value = 0.5,
-                              step = 0.05,
-                              label = "Theta V"
-                            ))
-                              
-                              ,
-                              
-                              mainPanel(
-                                plotOutput(outputId = "mm",
-                                           height = 400
-                                )
-                              )
-                            )
-                   ), # tabP
-                   
-                   # Documentation          
-                   
-                   tabPanel("Documentation",
-                            withMathJax(includeMarkdown("Documentation/Michaelis_Menten.md")
-                   )),
-                   
-                   # R code          
-                   
-                 tabPanel("R code",
-                          withMathJax(includeMarkdown("R_code/RMichaelisM.md"))
-                          )
-                   
-            )
-          ) # fluidRow
-       )#fluidPage
-      )#tabItem
+      
+# Modelos      
+      
 #***********************************************************************************
-     )#tabItems  
-    )#dashboardBody
-   )#dashboardPage
-  )#ShinyUI
+
+# Exponencial Assintótica
+      
+        tabItem(tabName = "expA",
+        
+          fluidPage(
+          
+            fluidRow(
+            
+              source("R/asymexp.R")
+            
+            ) # fluidRow
+          )#fluidPage
+        ),#tabItem
+      
+#***********************************************************************************
+
+# Michaelis-Menten
+      
+        tabItem(tabName = "MM",
+        
+          fluidPage(
+          
+            fluidRow(
+            
+              source("R/michmen.R")
+            
+            ) # fluidRow
+          )#fluidPage
+        )#tabItem
+
+#***********************************************************************************
+    
+   )#tabItems  
+  )#dashboardBody
+ )#dashboardPage
+)#ShinyUI
