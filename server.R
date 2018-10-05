@@ -33,7 +33,7 @@ shinyServer(function(input, output){
     
     
     ggplot(data.frame(x = c(0, 10)), aes(x)) + 
-      stat_function(fun = exp1, size = 1, colour = "red") +
+      stat_function(fun = exp1, size = 1, colour = "blue") +
       theme_classic() +
       xlab("") + ylab("")
     
@@ -57,7 +57,7 @@ shinyServer(function(input, output){
   
   
     ggplot(data.frame(x = c(0, 10)), aes(x)) + 
-      stat_function(fun = exp2, size = 1, colour = "red") +
+      stat_function(fun = exp2, size = 1, colour = "blue") +
       theme_classic() +
       xlab("") + ylab("")
     

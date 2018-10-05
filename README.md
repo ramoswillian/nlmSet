@@ -1,27 +1,33 @@
 # Nonlinear Regression Models Catalogue
 
-[Augusto Calcanhoto](https://github.com/Buzzonicalcanhoto),
-graduando em Estatística na UFPR.
+[Augusto Calcanhoto](https://github.com/Buzzonicalcanhoto), graduating in statistic Federal University of Paraná.
 
 [Bruna Wundervald](https://gitlab.c3sl.ufpr.br/u/bdw13),
-graduanda em Estatística na UFPR.  
-
-[Walmes Zeviani](https://gitlab.c3sl.ufpr.br/u/walmes),
-professor doutor do departamento de Estatística da UFPR.
+graduate in statistic at the Federal University of Paraná.  
 
 [Willian Ramos](https://github.com/willianramos12),
-graduando em Estatística na UFPR.  
+graduating in statistic Federal University of Paraná.
 
-## Descrição do projeto
+[Walmes Zeviani](https://gitlab.c3sl.ufpr.br/u/walmes),
+lecturer at Department of Statistics at Federal University of Paraná.
 
-Modelos de regressão, no geral, são empregados para explicar o
-comportamento de uma variável resposta devido uma ou mais variáveis
-explanatórias. Os modelos lineares são chamados assim porque são
-lineares em seus parâmetros, enquanto os não lineares não os são.  
+## Project's Description 
 
-### Exemplos de equações de modelos não lineares:
+Regression models, usually, are used to explain a dependent 
+variable's behavior by reason of one ou more explanatory variable. 
+This project is developing a R package with a Shiny interface to document 
+and explore nonlinear regression models. The model curve can be 
+manipulated using sliders, so allowing the user select the most 
+apropriate model for applications.
 
-![](Photos/eq.png)
+
+### Examples of non-linear models:
+
+$\large{\hat{y} = \beta_{0}^{} + \beta_{1}^{}(x + \beta_{2}^{})^{2}}$
+  
+$\large{\hat{y} = \beta_{0}^{} + (1 - \exp(- \beta_{1}^{}(x - \beta_{0}^{})))}$
+
+
 
 Para estes modelos, a forma como os parâmetros se relacionam com a
 função não é óbvia. Com isso, é difícil perceber se a forma destas
