@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------
 
-## Nonlinear Regression Models Catalogue
+# Nonlinear Regression Models Catalogue
 
 
 ## Carregando pacotes
@@ -38,8 +38,8 @@ shinyUI(dashboardPage(
   
         dashboardSidebar(
     
-# Trocando cor da barra.
-    
+# CSS e HTML
+          
         tags$style(includeCSS("style.css")),
     
 # Abas 
@@ -54,27 +54,38 @@ shinyUI(dashboardPage(
                     tabName = "int"),
       
           menuItem("Models",
-                   tabName = "mod",
-                   sidebarSearchForm(textId = "searchText",
-                                     buttonId = "searchButton",
-                                     label = "Search..."),            
-#-----------------------------------------------------------------------------------
-        
-# Exponencial Assintótico
+                    tabName = "mod",
+                    sidebarSearchForm(textId = "searchText",
+                                      buttonId = "searchButton",
+                                      label = "Search..."),
+
+
+# Modelos - Abas ----------------------------------------------------------
+
+
+
+# Exponencial Assintótico -------------------------------------------------
+
+
+
         
             menuSubItem("Asymptotic Exponential",
                         tabName = "expA"
             ),
         
-#-----------------------------------------------------------------------------------
+
+# Michelis-Menten ---------------------------------------------------------
+
         
-# Michelis-Menten          
+          
         
             menuSubItem("Michaelis-Menten",
                         tabName = "MM"
             )
 
-#-----------------------------------------------------------------------------------  
+
+# Guia de Contribuicao ----------------------------------------------------
+
 
           ),#menuItem
 
@@ -87,10 +98,10 @@ shinyUI(dashboardPage(
     ) #sidebarMenu
   ), #dashboardSidebar
   
-#-----------------------------------------------------------------------------------  
-  
-# Body
-  
+
+# Body --------------------------------------------------------------------
+
+
         dashboardBody(
     
           tabItems(
@@ -105,25 +116,27 @@ shinyUI(dashboardPage(
       
 # Modelos      
       
-#***********************************************************************************
 
-# Exponencial Assintótica
-      
+
+# Exponencial Assintótica -------------------------------------------------
+
+
         tabItem(tabName = "expA",
         
           fluidPage(
           
             fluidRow(
+              
             
-              source("Models/AsymExp/Pasymexp.R")
+              source("Models/AsymExp/Pasymexp.R", local = TRUE)$value
             
             ) # fluidRow
           )#fluidPage
         ),#tabItem
       
-#-----------------------------------------------------------------------------------
 
-# Michaelis-Menten
+# Michaelis-Menten --------------------------------------------------------
+
       
         tabItem(tabName = "MM",
         
@@ -131,13 +144,17 @@ shinyUI(dashboardPage(
           
             fluidRow(
             
-              source("Models/MicMen/Pmicmen.R")
+              source("Models/MicMen/Pmicmen.R", local = TRUE)$value
             
             ) # fluidRow
           )#fluidPage
         ),#tabItem
 
-#-----------------------------------------------------------------------------------
+
+
+# Guia de Contribuicao ----------------------------------------------------
+
+
         tabItem(tabName = "cont",
                 includeMarkdown("README.md")
         )
