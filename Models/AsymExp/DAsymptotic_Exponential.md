@@ -1,5 +1,7 @@
 # Modelo Exponencial Assintótico
 
+<div style="text-align: justify">
+
 ## Descrição
 
 O modelo Exponencial Assintótico, também conhecido como negativo exponencial
@@ -107,3 +109,5 @@ foi utilizado para a previsão de recordes na Olímpiada de Pequim e em
 estudos sobre os índices de criminalidade no ABCD paulista.
 
 ## Referências
+
+</div>
