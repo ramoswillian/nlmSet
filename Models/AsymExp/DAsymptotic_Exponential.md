@@ -1,6 +1,5 @@
 # Modelo Exponencial Assintótico
 
-<div style="text-align: justify">
 
 ## Descrição
 
@@ -110,4 +109,4 @@ estudos sobre os índices de criminalidade no ABCD paulista.
 
 ## Referências
 
-</div>
+

@@ -1,7 +1,5 @@
 # Michaelis-Menten
 
-<div style = "text-align: justify">
-
 ## Descrição
 
 
@@ -131,4 +129,3 @@ também é conhecido como cooperativismo dos ligantes
 (outro nome para "ligando"). Goutelle et al. (2008) discorrem sobre mais propriedades
 do modelo de Hill.
 
-</div>
