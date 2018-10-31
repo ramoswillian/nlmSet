@@ -14,156 +14,152 @@ library(markdown)
 
 shinyUI(dashboardPage(
   
-# Title  
+  # Title  
   
-        title = "nlmSet",
+  title = "nlmSet",
   
-# Skin
+  # Skin
   
-        skin = "green",
+  skin = "green",
   
-# Header
+  # Header
   
   
-        dashboardHeader(title = "nlmSet",
-                        titleWidth = 229.41,
-                        tags$li(class= "dropdown",
-                                tags$a(href= "https://github.com/leg-ufpr/nlmSet", 
-                                icon("github"), 
-                                "Source Code",
-                                target="_blank"))
+  dashboardHeader(title = "nlmSet",
+                  titleWidth = 229.41,
+                  tags$li(class= "dropdown",
+                          tags$a(href= "https://github.com/leg-ufpr/nlmSet", 
+                                 icon("github"), 
+                                 "Source Code",
+                                 target="_blank"))
   ),
   
-# Sidebar
+  # Sidebar
   
-        dashboardSidebar(
+  dashboardSidebar(
     
-# CSS e HTML
-          
-        tags$style(includeCSS("style.css")),
+    # CSS e HTML
     
-# Abas 
+    tags$style(includeCSS("style.css")),
     
-        sidebarMenu(
-          
-          id = "tabs",
+    # Abas 
+    
+    sidebarMenu(
       
-# Primeira Aba       
+      id = "tabs",
       
-          menuItem("Introduction",
-                    tabName = "int"),
+      # Primeira Aba       
       
-          menuItem("Models",
-                    tabName = "mod",
-                    sidebarSearchForm(textId = "searchText",
-                                      buttonId = "searchButton",
-                                      label = "Search..."),
-
-
-# Modelos - Abas ----------------------------------------------------------
-
-
-
-# Exponencial Assintótico -------------------------------------------------
-
-
-
-        
-            menuSubItem("Asymptotic Exponential",
-                        tabName = "expA"
-            ),
-        
-
-# Michelis-Menten ---------------------------------------------------------
-
-        
-          
-        
-            menuSubItem("Michaelis-Menten",
-                        tabName = "MM"
-            )
-
-
-# Guia de Contribuicao ----------------------------------------------------
-
-
-          ),#menuItem
-
-          menuItem("Contribution",
-                   tabName = "cont"
-          )
-
-
-
+      menuItem("Introduction",
+               tabName = "int"),
+      
+      menuItem("Models",
+               tabName = "mod",
+               
+               
+               # Modelos - Abas ----------------------------------------------------------
+               
+               
+               
+               # Exponencial Assintótico -------------------------------------------------
+               
+               
+               
+               
+               menuSubItem("Asymptotic Exponential",
+                           tabName = "expA"
+               ),
+               
+               
+               # Michelis-Menten ---------------------------------------------------------
+               
+               
+               
+               
+               menuSubItem("Michaelis-Menten",
+                           tabName = "MM"
+               )
+               
+               
+               # Guia de Contribuicao ----------------------------------------------------
+               
+               
+      ),#menuItem
+      
+      menuItem("Contribution",
+               tabName = "cont"
+      )
+      
+      
+      
     ) #sidebarMenu
   ), #dashboardSidebar
   
-
-# Body --------------------------------------------------------------------
-
-
-        dashboardBody(
+  
+  # Body --------------------------------------------------------------------
+  
+  
+  dashboardBody(
     
-          tabItems(
+    tabItems(
       
-# Tela inicial      
+      # Tela inicial      
       
-            tabItem(tabName = "int",
-                    includeMarkdown("README.md")
-            ),
-
-
+      tabItem(tabName = "int",
+              includeMarkdown("README.md")
+      ),
       
-# Modelos      
       
-
-
-# Exponencial Assintótica -------------------------------------------------
-
-
-        tabItem(tabName = "expA",
-        
-          fluidPage(
-          
-            fluidRow(
+      
+      # Modelos      
+      
+      
+      
+      # Exponencial Assintótica -------------------------------------------------
+      
+      
+      tabItem(tabName = "expA",
               
-            
-              source("Models/AsymExp/Pasymexp.R", local = TRUE)$value
-            
+              fluidPage(
+                
+                fluidRow(
+                  
+                  source("Models/AsymExp/Pasymexp.R", local = TRUE)$value
+                  
+                  
+                ) # fluidRow
+              )#fluidPage
+      ),#tabItem
+      
+      
+      # Michaelis-Menten --------------------------------------------------------
+      
+      
+      tabItem(tabName = "MM",
               
-            ) # fluidRow
-          )#fluidPage
-        ),#tabItem
+              fluidPage(
+                
+                fluidRow(
+                  
+                  source("Models/MicMen/Pmicmen.R", local = TRUE)$value
+                  
+                ) # fluidRow
+              )#fluidPage
+      ),#tabItem
       
-
-# Michaelis-Menten --------------------------------------------------------
-
       
-        tabItem(tabName = "MM",
-        
-          fluidPage(
-          
-            fluidRow(
-            
-              source("Models/MicMen/Pmicmen.R", local = TRUE)$value
-            
-            ) # fluidRow
-          )#fluidPage
-        ),#tabItem
-
-
-
-# Guia de Contribuicao ----------------------------------------------------
-
-
-        tabItem(tabName = "cont",
-                includeMarkdown("contribuition.md")
-        )
-
-
-#-----------------------------------------------------------------------------------
-
-   )#tabItems  
+      
+      # Guia de Contribuicao ----------------------------------------------------
+      
+      
+      tabItem(tabName = "cont",
+              includeMarkdown("contribuition.md")
+      )
+      
+      
+      #-----------------------------------------------------------------------------------
+      
+    )#tabItems  
   )#dashboardBody
- )#dashboardPage
+)#dashboardPage
 )#ShinyUI
