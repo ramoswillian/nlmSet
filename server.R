@@ -16,79 +16,63 @@ shinyServer(function(input, output){
   
   # Exponencial Assintotica -------------------------------------------------
   
+  #  mForm6 <- as.formula("Y ~ thetaA * (1 - exp(-theta0 *x))")
+  #  mExpr6 <- mForm6[[3]]
   
-  output$serslEA1 <- renderUI({
-    
-    sliderInput(inputId = "tA",
-                label = "ThetaA",
-                min = -10,
-                max = 10,
-                value = 0
-    )})
+  #  mForm7 <- as.formula("Y ~ thetaA * (1 - exp((x * log(1 - q))
+  #                     /theta0))")
   
-  output$serslEA2 <- renderUI({  
-    
-    sliderInput(inputId = "t0",
-                label = "Theta0",
-                min = 0,
-                max = 1, 
-                value = 0.5
-    )})
-  
-  output$serslEA3 <- renderUI({  
-    
-    sliderInput(inputId = "q",
-                label = "q",
-                min = 0,
-                max = 1,
-                value = 0.5,
-                step = 0.05
-    )
-    
-  })
-  
-  
+  #  mExpr7 <- mForm7[[3]]
   
   
   
   
   output$EA <- renderPlot({
     
-    
-    
-    thetaA <- input$tA
-    theta0 <- input$t0
-    q <- input$q
-    
-    
-    
-    
-    
-    exp1 <- Vectorize(function(x){
-      result <- thetaA * (1 - exp(-theta0 * x))
-      return(result)
-    })
-    
-    
-    # Exponencial Reparametrizada ---------------------------------------------
-    
-    exp2 <- Vectorize(function(x){
-      result2 <- thetaA * (1 - exp((x * log(1 - q))/theta0))
-      return(result2)
-    })
-    
     if(input$serEA == "Asymptotic Exponential"){
-      var <- exp1
+      thetaA <- input$tA
+      theta0 <- input$t0
+      
+      exp1 <- Vectorize(function(x){
+        result <- thetaA*(1 - exp(-theta0 * x))
+        return(result)
+      })
+      
+      
+      
     } else{
-      var <- exp2
+      thetaA_1 <- input$tA_1
+      theta0_1 <- input$t0_1
+      q <- input$q
+      
+      
+      exp2 <- Vectorize(function(x){
+        result2 <- thetaA_1*(1 - exp((x * log(1 - q))/theta0_1))
+        return(result2)
+      })
     }
     
     
-    ggplot(data.frame(x = c(0, 10)), aes(x)) +
-      stat_function(fun = var, size = 1, colour = "blue") +
-      theme_classic() +
-      xlab("") + ylab("")
     
+    
+    
+    
+    if(input$serEA == "Asymptotic Exponential"){
+      var <- ggplot(data.frame(x = c(0, 10)), aes(x)) +
+        stat_function(fun = exp1, size = 1, colour = "blue") +
+        theme_classic() +
+        xlab("") + ylab("")
+      
+    } else{
+      var <- ggplot(data.frame(x = c(0, 10)), aes(x)) +
+        stat_function(fun = exp2, size = 1, colour = "blue") +
+        theme_classic() +
+        xlab("") + ylab("")
+      
+    }
+    
+    
+    var
     
     
   },  height = 400) #EA

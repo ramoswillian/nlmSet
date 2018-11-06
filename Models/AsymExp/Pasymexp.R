@@ -16,23 +16,52 @@ tabBox(title = "Asymptotic Exponential",
                                             "Asymptotic Exponential Reparametrized"),
                                 selected = "Asymptotic Exponential"
                     ),
-                    #br() #Adiciona espaço
-                    #helpText()
                     
-                    uiOutput("serslEA1"), #Padrão de escrita "sersl'ABREVIAÇÃOMODELO''NUMERO'"  
-                    uiOutput("serslEA2"),
-                    h3(),
-                    h5("Expecifico para o Asymptotic Exponential"),
-                    uiOutput("serslEA3")
-                  ),
+                    
+                    conditionalPanel(condition = "input.serEA == 'Asymptotic Exponential'",
+                                     sliderInput(inputId = "tA",
+                                                 label = "ThetaA",
+                                                 min = -10,
+                                                 max = 10,
+                                                 value = 5
+                                     ),
+                                     
+                                     sliderInput(inputId = "t0",
+                                                 label = "Theta0",
+                                                 min = 0,
+                                                 max = 1,
+                                                 value = 0.5
+                                     )),
+                    
+                    conditionalPanel(condition = "input.serEA == 'Asymptotic Exponential Reparametrized' ",
+                                     sliderInput(inputId = "tA_1",
+                                                 label = "ThetaA",
+                                                 min = -10,
+                                                 max = 10,
+                                                 value = 5
+                                     ),
+                                     
+                                     sliderInput(inputId = "t0_1",
+                                                 label = "Theta0",
+                                                 min = 0,
+                                                 max = 1,
+                                                 value = 0.5
+                                     ),
+                                     
+                                     sliderInput(inputId = "q",
+                                                 label = "q",
+                                                 min = 0,
+                                                 max = 1,
+                                                 value = 0.5
+                                     ))),
                   
                   mainPanel(
                     
                     plotOutput(outputId = "EA",
                                height = 400
                     ))
-                )
-       ), # tabP
+                  
+                )), # tabP
        
        # Documentation          
        
