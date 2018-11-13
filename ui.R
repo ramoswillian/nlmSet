@@ -28,7 +28,7 @@ shinyUI(dashboardPage(
   dashboardHeader(title = "nlmSet",
                   titleWidth = 229.41,
                   tags$li(class= "dropdown",
-                          tags$a(href= "https://github.com/leg-ufpr/nlmSet", 
+                          tags$a(href= "https://github.com/willianramos12/nlmSet", 
                                  icon("github"), 
                                  "Source Code",
                                  target="_blank"))
@@ -57,11 +57,11 @@ shinyUI(dashboardPage(
                tabName = "mod",
                
                
-               # Modelos - Abas ----------------------------------------------------------
+# Modelos - Abas ----------------------------------------------------------
                
                
                
-               # Exponencial Assintótico -------------------------------------------------
+# Exponencial Assintótico -------------------------------------------------
                
                
                
@@ -111,11 +111,11 @@ shinyUI(dashboardPage(
       
       
       
-      # Modelos      
+# Modelos      
       
       
       
-      # Exponencial Assintótica -------------------------------------------------
+# Exponencial Assintótica -------------------------------------------------
       
       
       tabItem(tabName = "expA",
@@ -124,7 +124,7 @@ shinyUI(dashboardPage(
                 
                 fluidRow(
                   
-                  source("Models/AsymExp/Pasymexp.R", local = TRUE)$value
+                  source("Models/AsymExp/uiasymexp.R", local = TRUE)$value
                   
                   
                 ) # fluidRow
@@ -141,7 +141,7 @@ shinyUI(dashboardPage(
                 
                 fluidRow(
                   
-                  source("Models/MicMen/Pmicmen.R", local = TRUE)$value
+                  source("Models/MicMen/uimicmen.R", local = TRUE)$value
                   
                 ) # fluidRow
               )#fluidPage

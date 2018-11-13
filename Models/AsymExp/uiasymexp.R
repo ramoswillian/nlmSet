@@ -20,14 +20,14 @@ tabBox(title = "Asymptotic Exponential",
                     
                     conditionalPanel(condition = "input.serEA == 'Asymptotic Exponential'",
                                      sliderInput(inputId = "tA",
-                                                 label = "ThetaA",
+                                                 HTML("$$ \\theta_a $$"),
                                                  min = -10,
                                                  max = 10,
                                                  value = 5
                                      ),
                                      
                                      sliderInput(inputId = "t0",
-                                                 label = "Theta0",
+                                                 HTML("$$ \\theta_0 $$"),
                                                  min = 0,
                                                  max = 1,
                                                  value = 0.5
@@ -35,21 +35,21 @@ tabBox(title = "Asymptotic Exponential",
                     
                     conditionalPanel(condition = "input.serEA == 'Asymptotic Exponential Reparametrized' ",
                                      sliderInput(inputId = "tA_1",
-                                                 label = "ThetaA",
+                                                 HTML("$$ \\theta_{a} $$"),
                                                  min = -10,
                                                  max = 10,
                                                  value = 5
                                      ),
                                      
                                      sliderInput(inputId = "t0_1",
-                                                 label = "Theta0",
+                                                 HTML("$$ \\theta_{0} $$"),
                                                  min = 0,
                                                  max = 1,
                                                  value = 0.5
                                      ),
                                      
-                                     sliderInput(inputId = "q",
-                                                 label = "q",
+                                     sliderInput(inputId = "q_1",
+                                                 HTML("q"),
                                                  min = 0,
                                                  max = 1,
                                                  value = 0.5
