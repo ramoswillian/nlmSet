@@ -1,6 +1,10 @@
 #---------------------------------------------------------------------------------------
 
-# Nonlinear Regression Models Catalogue
+# OBS: RODAR NO NAVEGADOR PARA RENDERIZAR O CSS.
+
+
+
+# Nonlinear Regression Models Catalogue -----------------------------------
 
 
 ## Carregando pacotes

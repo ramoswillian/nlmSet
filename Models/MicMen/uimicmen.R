@@ -32,7 +32,8 @@ tabBox(title = "Michaelis-Menten",
                                          max = 10,
                                          value = 1,
                                          step = 0.5,
-                                         HTML("$$ \\theta_{a} $$")
+                                         HTML("$$ \\theta_{a} $$"),
+                                         animate = animationOptions(interval = 1000, loop = TRUE)
                              ),
                                   
                              sliderInput(inputId = "tV_0",
@@ -40,7 +41,8 @@ tabBox(title = "Michaelis-Menten",
                                          max = 1,
                                          value = 0.5,
                                          step = 0.05,
-                                         HTML("$$ \\theta_{v} $$")
+                                         HTML("$$ \\theta_{v} $$"),
+                                         animate = animationOptions(interval = 1000, loop = TRUE)
                              )),
 
 
@@ -54,21 +56,24 @@ tabBox(title = "Michaelis-Menten",
                                          HTML("$$ \\theta_{a} $$"),
                                          min = -10,
                                          max = 10,
-                                         value = 2),
+                                         value = 2,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("tV_1",
                                          HTML("$$ \\theta_{v} $$"),
                                          min = 0,
                                          max = 1,
                                          value = 0.5,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("q_1",
                                          HTML("$$ q $$"),
                                          min = 0,
                                          max = 1,
                                          value = 0.5,
-                                         step = 0.05)
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE))
             ),
 
 
@@ -82,28 +87,32 @@ tabBox(title = "Michaelis-Menten",
                                          min = -10,
                                          max = 10,
                                          value = 1,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("tV_2",
                                          HTML("$$ \\theta_{v} $$"), 
                                          min = 1,
                                          max = 10,
                                          value = 1,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("q_2",
                                          HTML("$$ q $$"),
                                          min = 0,
                                          max = 1,
                                          value = 0.5,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("tC_2",
                                          HTML("$$ \\theta_{c} $$"),
                                          min = -10,
                                          max = 10,
                                          value = 1,
-                                         step = 0.05)
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE))
                              ),
 
 
@@ -118,28 +127,32 @@ tabBox(title = "Michaelis-Menten",
                                          min = -10,
                                          max = 10,
                                          value = 1,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("tV_3",
                                          HTML("$$ \\theta_{v} $$"),
                                          min = 0,
                                          max = 1,
                                          value = 0.5,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("q_3",
                                          HTML("$$ q $$"),
                                          min = 0,
                                          max = 1,
                                          value = 0.5,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("tC_3",
                                          HTML("$$ \\theta_{c} $$"),
                                          min = -10,
                                          max = 10,
                                          value = 1,
-                                         step = 0.05)
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE))
                              
                              ),
 
@@ -154,28 +167,32 @@ tabBox(title = "Michaelis-Menten",
                                          min = -10,
                                          max = 10,
                                          value = 1,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("tV_4",
                                          HTML("$$ \\theta_{v} $$"),
                                          min = 0,
                                          max = 1,
                                          value = 0.5,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("q_4",
                                          HTML("$$ q $$"),
                                          min = 0,
                                          max = 1,
                                          value = 0.5,
-                                         step = 0.05),
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE)),
                              
                              sliderInput("tC_4",
                                          HTML("$$ \\theta_{c} $$"),
                                          min = -10,
                                          max = 10,
                                          value = 1,
-                                         step = 0.05)
+                                         step = 0.05,
+                                         animate = animationOptions(interval = 1000, loop = TRUE))
                              
                              )
                              

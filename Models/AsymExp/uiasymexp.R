@@ -23,14 +23,16 @@ tabBox(title = "Asymptotic Exponential",
                                                  HTML("$$ \\theta_a $$"),
                                                  min = -10,
                                                  max = 10,
-                                                 value = 5
+                                                 value = 5,
+                                                 animate = animationOptions(interval = 1000, loop = TRUE)
                                      ),
                                      
                                      sliderInput(inputId = "t0",
                                                  HTML("$$ \\theta_0 $$"),
                                                  min = 0,
                                                  max = 1,
-                                                 value = 0.5
+                                                 value = 0.5, 
+                                                 animate = animationOptions(interval = 800, loop = TRUE)
                                      )),
                     
                     conditionalPanel(condition = "input.serEA == 'Asymptotic Exponential Reparametrized' ",
@@ -38,21 +40,24 @@ tabBox(title = "Asymptotic Exponential",
                                                  HTML("$$ \\theta_{a} $$"),
                                                  min = -10,
                                                  max = 10,
-                                                 value = 5
+                                                 value = 5,
+                                                 animate = animationOptions(interval = 1000, loop = TRUE)
                                      ),
                                      
                                      sliderInput(inputId = "t0_1",
                                                  HTML("$$ \\theta_{0} $$"),
                                                  min = 0,
                                                  max = 1,
-                                                 value = 0.5
+                                                 value = 0.5,
+                                                 animate = animationOptions(interval = 1000, loop = TRUE)
                                      ),
                                      
                                      sliderInput(inputId = "q_1",
                                                  HTML("q"),
                                                  min = 0,
                                                  max = 1,
-                                                 value = 0.5
+                                                 value = 0.5,
+                                                 animate = animationOptions(interval = 1000, loop = TRUE)
                                      ))),
                   
                   mainPanel(

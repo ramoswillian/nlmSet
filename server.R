@@ -1,6 +1,9 @@
 #--------------------------------------------------------------------------------------
 
-## Codigo Server do app nlmSet
+# OBS: RODAR NO NAVEGADOR PARA RENDERIZAR O CSS.
+
+
+# Nonlinear Regression Models Catalogue -----------------------------------
 
 ## Carregando pacotes:
 
